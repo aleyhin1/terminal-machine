@@ -30,3 +30,14 @@ Bit8 decoder_bit8(Bit3 sel)
 
     return out;
 }
+
+bool comparator_bit4(Bit4 a, Bit4 b)
+{
+    bool out0 = a.bit0 ^ b.bit0;
+    bool out1 = a.bit1 ^ b.bit1;
+    bool out2 = a.bit2 ^ b.bit2;
+    bool out3 = a.bit3 ^ b.bit3;
+
+    bool out4 = out0 || out1 || out2 || out3;
+    return !out4;
+}

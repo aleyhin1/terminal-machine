@@ -9,4 +9,6 @@ Bit8 decoder_bit8(Bit3 in);
 
 bool comparator_bit4(Bit4 a, Bit4 b);
 
+Bit8 bit1_shifter_bit8(Bit8 in, bool sel);
+
 #endif

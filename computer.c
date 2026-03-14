@@ -1,15 +1,17 @@
 #include <stdio.h>
 #include "circuits.h"
+#include "memory.h"
 
 int main()
 {
-    Bit2 sel;
-    sel.bit0 = 0;
-    sel.bit1 = 0;
-    Bit2 out = bit1_ALU(0, 1, 1, 1, 1, 1, sel);
+    Register1* r = register1_create();
+    register1_write(r, 0, 1);
+    register1_write(r, 1, 0);
+    bool out = register1_read(r);
 
-    printf("%d\n", out.bit0);
-    printf("%d\n", out.bit1);
-    
+    printf("%d\n", out);
+
+    register1_destroy(r);
+
     return 0;
 }

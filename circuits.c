@@ -1,6 +1,6 @@
 #include "bits.h"
 
-bool multiplexer_bits8(Bit8 in, Bit3 sel)
+bool multiplexer(Bit8 in, Bit3 sel)
 {
     bool out0 = in.bit0 && !sel.bit0 && !sel.bit1 && !sel.bit2;
     bool out1 = in.bit1 && sel.bit0 && !sel.bit1 && !sel.bit2;
@@ -14,7 +14,7 @@ bool multiplexer_bits8(Bit8 in, Bit3 sel)
     return out0 || out1 || out2 || out3 || out4 || out5 || out6 || out7;
 }
 
-Bit8 decoder_bit8(Bit3 sel)
+Bit8 decoder(Bit3 sel)
 {
     Bit8 out;
     
@@ -30,7 +30,7 @@ Bit8 decoder_bit8(Bit3 sel)
     return out;
 }
 
-bool comparator_bit4(Bit4 a, Bit4 b)
+bool comparator(Bit4 a, Bit4 b)
 {
     bool out0 = a.bit0 ^ b.bit0;
     bool out1 = a.bit1 ^ b.bit1;
@@ -41,7 +41,7 @@ bool comparator_bit4(Bit4 a, Bit4 b)
     return !out4;
 }
 
-Bit8 bit1_shifter_bit8(Bit8 in, bool sel)
+Bit8 shifter_1(Bit8 in, bool sel)
 {
     bool out0 = in.bit0 & !sel;
     bool out1 = in.bit1 & sel;
@@ -68,5 +68,17 @@ Bit8 bit1_shifter_bit8(Bit8 in, bool sel)
     out.bit6 = out10 || out13;
     out.bit7 = out12;
 
+    return out;
+}
+
+Bit2 half_adder(bool a, bool b)
+{
+    bool sum = a ^ b;
+    bool carry = a && b;
+
+    Bit2 out;
+    out.bit0 = sum;
+    out.bit1 = carry;
+    
     return out;
 }

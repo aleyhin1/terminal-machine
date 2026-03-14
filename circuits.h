@@ -3,12 +3,14 @@
 
 #include "bits.h"
 
-bool multiplexer_bits8(Bit8 in, Bit3 sel);
+bool multiplexer(Bit8 in, Bit3 sel);
 
-Bit8 decoder_bit8(Bit3 in);
+Bit8 decoder(Bit3 in);
 
-bool comparator_bit4(Bit4 a, Bit4 b);
+bool comparator(Bit4 a, Bit4 b);
 
-Bit8 bit1_shifter_bit8(Bit8 in, bool sel);
+Bit8 shifter_1(Bit8 in, bool sel);
+
+Bit2 half_adder(bool a, bool b);
 
 #endif

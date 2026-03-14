@@ -79,6 +79,17 @@ Bit2 half_adder(bool a, bool b)
     Bit2 out;
     out.bit0 = sum;
     out.bit1 = carry;
-    
+
+    return out;
+}
+
+Bit2 full_adder(bool a, bool b, bool carry)
+{
+    Bit2 out0 = half_adder(a, b);
+    Bit2 sum = half_adder(out0.bit0, carry);
+
+    Bit2 out;
+    out.bit0 = sum.bit0;
+    out.bit1 = out0.bit1 || sum.bit1;
     return out;
 }

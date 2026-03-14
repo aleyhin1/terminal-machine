@@ -13,4 +13,6 @@ Bit8 shifter_1(Bit8 in, bool sel);
 
 Bit2 half_adder(bool a, bool b);
 
+Bit2 full_adder(bool a, bool b, bool carry);
+
 #endif

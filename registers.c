@@ -1,4 +1,4 @@
-#include "memory.h"
+#include "registers.h"
 #include <stdlib.h>
 
 Register1* register1_create()

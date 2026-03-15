@@ -1,17 +1,21 @@
 #include <stdio.h>
 #include "circuits.h"
-#include "memory.h"
+#include "registers.h"
+#include "rams.h"
 
 int main()
 {
-    Register1* r = register1_create();
-    register1_write(r, 0, 1);
-    register1_write(r, 1, 0);
-    bool out = register1_read(r);
+    Ram1x2* r = ram1x2_create();
 
-    printf("%d\n", out);
+    bool r0 = ram1x2_read_write(r, 1, 0, 1, 0, 0);
+    bool r1 = ram1x2_read_write(r, 0, 1, 1, 1, 1);
 
-    register1_destroy(r);
+    r0 = ram1x2_read_write(r, 0, 0, 1, 1, 0);
+
+    printf("%d\n", r0);
+    printf("%d\n", r1);
+
+    ram1x2_destroy(r);
 
     return 0;
 }

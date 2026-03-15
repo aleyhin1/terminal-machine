@@ -1,5 +1,5 @@
-#ifndef MEMORY_H
-#define MEMORY_H
+#ifndef REGISTERS_H
+#define REGISTERS_H
 
 #include "bits.h"
 #include <stdbool.h>
